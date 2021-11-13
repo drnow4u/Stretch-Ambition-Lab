@@ -1,24 +1,24 @@
 #Compact Strings
 
-Testing JEP 254: Compact Strings
+Play and testing [JEP 254: Compact Strings](https://openjdk.java.net/jeps/254) introduced in JDK 9.
 
 ## Build
 
 ```shell
-docker build -t stringtest .
+docker build -t compact-strings .
 ```
 
 ## Run
 
 ```shell
-docker run --rm --memory=256m stringtest
+docker run --rm --memory=256m compact-strings | tail -n 1
 ```
 
 ## Results
 
 Host MacBook Pro, CPU i7, 2,2 GHz, RAM 16 GB 1600 MHz DDR3
 
-| Docker Image              | bits    | --memory | Amounts                        |
+| Docker Image              | bits    | --memory | Number of object instances     |
 |---------------------------|---------|----------|--------------------------------|
 | openjdk:8u242             | 64-bit  | 256m     | 205844, 205849, 205841, 205845 |
 | openjdk:8u242             | 64-bit  | 512m     | 209150, 209145, 209158, 209147 |
