@@ -1,4 +1,4 @@
-# Java Sandbox
+# Stretch Ambition
 ## Play with Java features and have fun!
 
 In 2021 my Stretch Ambition is to learn about new feature in Java 9-15. 
@@ -8,8 +8,8 @@ Not so mach at this moment, but I'm happy that I started this journey.
 
 Some of my test you can find:
 
-- [JEP 254: Compact Strings](JEP254-Compact_Strings)
-- JEP 110: HTTP/2 Client - coming soon
+- [JEP 254: Compact Strings](Java-9-JEP254-Compact_Strings)
+- [JEP 110: HTTP/2 Client](Java-9-JEP110-HTTP2_Client)
 
 ## Postgres new cool staff
 
