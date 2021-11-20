@@ -1,0 +1,15 @@
+version: '3'
+services:
+  postgres:
+    image: "citusdata/citus:postgres_13"
+    ports:
+      - "5432:5432"
+    volumes:
+      -  ./pg:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=admin123
+    deploy:
+      resources:
+        limits:
+          cpus: 2
+          memory: 2G
