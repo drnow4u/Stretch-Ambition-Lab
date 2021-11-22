@@ -1,0 +1,17 @@
+version: '3'
+services:
+  postgres:
+    image: "postgres:13.5"
+    ports:
+      - "5432:5432"
+    volumes:
+      -  ./pg:/var/lib/postgresql/data
+      -  ./backup:/var/backup
+    environment:
+      - POSTGRES_PASSWORD=admin123
+    deploy:
+      resources:
+        limits:
+          cpus: 2
+          memory: 2G
+
