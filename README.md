@@ -15,4 +15,5 @@ Some of my test you can find:
 
 - [Access Method](PostgreSQL-10-ACCESS_METHOD)
 - [Table Partitioning](PostgreSQL-10-Table_Partitioning)
+- [CREATE PROCEDURE](PostgreSQL-11-CREATE_PROCEDURE)
 - [pg_verifybackup](PostgreSQL-13-pg_verifybackup)
