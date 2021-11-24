@@ -1,5 +1,7 @@
 package com.example.microservices20;
 
+import jdk.nashorn.api.scripting.ClassFilter;
+import jdk.nashorn.api.scripting.NashornScriptEngineFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.http.ResponseEntity;
@@ -24,10 +26,8 @@ public class OrderController {
 
     @PostMapping(API_ORDER)
     public String order(@RequestBody String order, @RequestHeader(X_CONTEXT_HEADER) String context) throws ScriptException, NoSuchMethodException {
-        ScriptEngine engine = new ScriptEngineManager().getEngineByName("nashorn");
-
-        Bindings bindings = engine.createBindings();
-        bindings.put("invoicing", 4);
+        NashornScriptEngineFactory factory = new NashornScriptEngineFactory();
+        ScriptEngine engine = factory.getScriptEngine(new NoJavaFilter());
 
         Object result = engine.eval(context);
         System.out.println(result);
@@ -53,6 +53,13 @@ public class OrderController {
             System.out.println("Invoicing: " + item);
             ResponseEntity<String> response = restTemplate.postForEntity( API_INVOICE, item, String.class);
             return response.getBody();
+        }
+    }
+
+    private class NoJavaFilter implements ClassFilter {
+        @Override
+        public boolean exposeToScripts(String className) {
+            return false;
         }
     }
 }

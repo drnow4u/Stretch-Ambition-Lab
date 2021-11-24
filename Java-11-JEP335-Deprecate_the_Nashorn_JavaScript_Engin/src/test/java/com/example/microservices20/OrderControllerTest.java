@@ -23,7 +23,7 @@ class OrderControllerTest {
     @Test
     void should_order() throws Exception {
         // Given
-        // When
+        final String item = "car";
         final String context = "function onOrdered(item, invoicing) {" +
                 "var greeting='hello world';" +
                 "print(greeting);" +
@@ -31,10 +31,11 @@ class OrderControllerTest {
                 "var invoiced = invoicing.invoice(item);" +
                 "return 'Thank you for ' + invoiced;" +
                 "}";
+        // When
         final ResultActions response = mvc.perform(post(API_ORDER)
                 .header(X_CONTEXT_HEADER, context)
                 .contentType(MediaType.APPLICATION_JSON)
-                .content("car"));
+                .content(item));
         // Then
         response.andExpect(status().isOk())
                 .andExpect(content().string("Thank you for Invoiced: car"));

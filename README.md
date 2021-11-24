@@ -10,6 +10,7 @@ Some of my test you can find:
 
 - [JEP 254: Compact Strings](Java-9-JEP254-Compact_Strings)
 - [JEP 110: HTTP/2 Client](Java-9-JEP110-HTTP2_Client)
+- [JEP 335: Deprecate the Nashorn JavaScript Engine - goodbye code](Java-11-JEP335-Deprecate_the_Nashorn_JavaScript_Engin)
 
 ## Postgres new cool staff
 
