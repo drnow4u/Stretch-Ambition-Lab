@@ -24,12 +24,17 @@ class OrderControllerTest {
     void should_order() throws Exception {
         // Given
         final String item = "car";
-        final String context = "function onOrdered(item, invoicing) {" +
-                "var greeting='hello world';" +
-                "print(greeting);" +
-                "print(item);" +
-                "var invoiced = invoicing.invoice(item);" +
-                "return 'Thank you for ' + invoiced;" +
+        final String context = "" +
+                "function onOrdered(item, invoicing) {" +
+                "   var greeting='hello world';" +
+                "   print(item);" +
+                "   var invoiced = invoicing.invoice(item);" +
+                "   return 'Thank you for ' + invoiced;" +
+                "}" +
+                "" +
+                "function onInvoiced(item) {" +
+                "   print(item);" +
+                "   return item" +
                 "}";
         // When
         final ResultActions response = mvc.perform(post(API_ORDER)
