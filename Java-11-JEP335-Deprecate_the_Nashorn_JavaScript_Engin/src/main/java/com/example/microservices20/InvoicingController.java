@@ -9,7 +9,9 @@ import javax.script.Invocable;
 import javax.script.ScriptEngine;
 import javax.script.ScriptException;
 
-import static com.example.microservices20.OrderController.X_CONTEXT_HEADER;
+import java.security.NoSuchAlgorithmException;
+
+import static com.example.microservices20.OrderController.*;
 
 @RestController
 public class InvoicingController {
@@ -23,7 +25,11 @@ public class InvoicingController {
     }
 
     @PostMapping(API_INVOICE)
-    public String invoice(@RequestBody String item, @RequestHeader(X_CONTEXT_HEADER) String context) throws ScriptException, NoSuchMethodException {
+    public String invoice(@RequestBody String item,
+                          @RequestHeader(X_CONTEXT_HEADER) String context,
+                          @RequestHeader(X_DIGEST_HEADER) String digest) throws ScriptException, NoSuchMethodException, NoSuchAlgorithmException {
+        if (!calculateDigest(context).equals(digest))
+            throw new RuntimeException("Wrong digest: " + digest);
         System.out.println("InvoicingController.invoice(): " + item);
         Object result = engine.eval(context);
         System.out.println(result);
