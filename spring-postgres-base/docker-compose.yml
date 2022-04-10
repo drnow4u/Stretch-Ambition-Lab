@@ -1,0 +1,10 @@
+version: '3'
+services:
+  postgres:
+    image: "library/postgres:11.14"
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./pg:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=admin123
