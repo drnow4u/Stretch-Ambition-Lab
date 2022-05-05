@@ -7,8 +7,7 @@
         <groupId>com.gitlab.marnow.stretch-ambition-lab</groupId>
         <artifactId>spring-postgres-base</artifactId>
         <version>0.0.1-SNAPSHOT</version>
-        <relativePath>../pom.xml</relativePath> <!-- lookup parent from repository -->
-     </parent>
+    </parent>
 
     <artifactId>spring-postgres-base-api</artifactId>
     <version>0.0.1-SNAPSHOT</version>
@@ -67,6 +66,11 @@
     </build>
 
     <dependencies>
+        <dependency>
+            <groupId>com.gitlab.marnow.stretch-ambition-lab</groupId>
+            <artifactId>spring-postgres-base-user</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
         <dependency>
             <groupId>com.fasterxml.jackson.datatype</groupId>
             <artifactId>jackson-datatype-jsr310</artifactId>

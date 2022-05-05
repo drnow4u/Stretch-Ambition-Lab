@@ -1,4 +1,4 @@
-package com.gitlab.marnow.stretchambitionlab.springpostgresbase.service.user;
+package com.gitlab.marnow.stretchambitionlab.springpostgresbase.user;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

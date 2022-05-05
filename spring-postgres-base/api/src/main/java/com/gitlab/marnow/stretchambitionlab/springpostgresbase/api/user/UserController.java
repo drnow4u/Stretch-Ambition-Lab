@@ -1,7 +1,7 @@
 package com.gitlab.marnow.stretchambitionlab.springpostgresbase.api.user;
 
-import com.gitlab.marnow.stretchambitionlab.springpostgresbase.service.user.User;
-import com.gitlab.marnow.stretchambitionlab.springpostgresbase.service.user.UserService;
+import com.gitlab.marnow.stretchambitionlab.springpostgresbase.user.User;
+import com.gitlab.marnow.stretchambitionlab.springpostgresbase.user.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;

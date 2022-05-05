@@ -1,4 +1,4 @@
-package com.gitlab.marnow.stretchambitionlab.springpostgresbase.service.user;
+package com.gitlab.marnow.stretchambitionlab.springpostgresbase.user;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
