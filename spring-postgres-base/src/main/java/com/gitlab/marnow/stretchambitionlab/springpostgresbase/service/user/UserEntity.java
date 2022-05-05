@@ -1,4 +1,4 @@
-package com.gitlab.marnow.stretchambitionlab.springpostgresbase.service;
+package com.gitlab.marnow.stretchambitionlab.springpostgresbase.service.user;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
