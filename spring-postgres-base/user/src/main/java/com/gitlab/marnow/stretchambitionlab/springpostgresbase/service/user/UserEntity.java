@@ -1,8 +1,8 @@
 package com.gitlab.marnow.stretchambitionlab.springpostgresbase.service.user;
 
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import lombok.experimental.Accessors;
+import org.hibernate.Hibernate;
 import org.hibernate.annotations.NaturalId;
 
 import javax.persistence.Column;
@@ -13,11 +13,15 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
+import java.util.Objects;
 import java.util.UUID;
 
 @Entity
 @Table(name = UserEntity.TABLE_NAME)
-@Data
+@Getter
+@Setter
+@ToString
+@RequiredArgsConstructor
 @NoArgsConstructor
 @Accessors(fluent = true)
 public class UserEntity implements Serializable {
@@ -38,4 +42,17 @@ public class UserEntity implements Serializable {
     @Size(max = 100)
     private String email;
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
+        UserEntity that = (UserEntity) o;
+        return id != null && Objects.equals(id, that.id)
+                && email != null && Objects.equals(email, that.email);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(email);
+    }
 }
