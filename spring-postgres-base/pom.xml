@@ -64,7 +64,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-surefire-plugin</artifactId>
-                    <version>3.0.0-M5</version>
+                    <version>3.0.0-M6</version>
                     <configuration>
                         <includes>
                             <include>*Test</include>
@@ -76,7 +76,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-failsafe-plugin</artifactId>
-                    <version>3.0.0-M5</version>
+                    <version>3.0.0-M6</version>
                     <configuration>
                         <argLine>--enable-preview</argLine>
                     </configuration>
@@ -91,8 +91,16 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.10.1</version>
                     <configuration>
                         <compilerArgs>--enable-preview</compilerArgs>
+                        <annotationProcessorPaths>
+                            <path>
+                                <groupId>org.projectlombok</groupId>
+                                <artifactId>lombok</artifactId>
+                                <version>1.18.22</version>
+                            </path>
+                        </annotationProcessorPaths>
                     </configuration>
                 </plugin>
                 <plugin>
@@ -129,7 +137,7 @@
             <dependency>
                 <groupId>org.flywaydb</groupId>
                 <artifactId>flyway-core</artifactId>
-                <version>7.1.1</version>
+                <version>7.15.0</version>
             </dependency>
             <dependency>
                 <groupId>org.postgresql</groupId>
