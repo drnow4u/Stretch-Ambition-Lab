@@ -1,0 +1,32 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+box "Spring Boot Test"
+    participant Test
+    participant MockMvc
+    participant SUT << TestController >>
+    participant WireMock <<External HTTP API>>
+end box
+
+Activate Test
+Test -> MockMvc: request parameters
+    Activate MockMvc
+    MockMvc -> SUT: HTTP request
+        Activate SUT
+        SUT -> WireMock: HTTP request
+            Activate WireMock
+            WireMock -> WireMock: Determine mapping
+            return HTTP response
+
+            opt mock request to same or other services
+                SUT -> WireMock: HTTP request
+                    Activate WireMock
+                WireMock -> WireMock: Determine mapping
+                return HTTP response
+            end
+        return HTTP response
+    return results
+Test -> Test: verify results
+@enduml
