@@ -1,0 +1,23 @@
+{
+  "request": {
+    "urlPattern": "/welcome\\?name=.*",
+    "method": "GET",
+    "headers": {
+      "Accept": {
+        "equalTo": "application/json, application/*+json"
+      }
+    }
+  },
+  "response": {
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "status": 200,
+    "jsonBody": {
+      "message": "Hello {{request.query.name}}"
+    },
+    "transformers": [
+      "response-template"
+    ]
+  }
+}
