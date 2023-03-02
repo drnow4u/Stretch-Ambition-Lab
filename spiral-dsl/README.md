@@ -1,4 +1,8 @@
-# Stretch Ambition
+# Domain Specific Language (DSL)
+How to create own Domain Specific Language in pure Java
+
+
+
 ## Make a spiral
 
 One day ago I heard about software development Kata. I found https://www.codewars.com/ and start to do Kata.
