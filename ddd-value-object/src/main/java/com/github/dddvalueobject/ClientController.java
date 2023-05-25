@@ -8,8 +8,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.UUID;
 
-import static com.github.dddvalueobject.ValueObjectUtil.is;
-
 @RestController
 public class ClientController {
 
@@ -24,15 +22,6 @@ public class ClientController {
     @PostMapping("/client")
     public ClientDTO createClient(@RequestBody ClientDTO client) {
         logger.info("Create client request {}", client);
-
-//         if(is(client.clientNumber()).eq(client.accountNumber())) - will not compile :-)
-        if(client.clientNumber().equals(client.accountNumber())){ // Such comparison is usually hard to find bug in application
-                                                                  // Static source code analyse can help.
-                                                                  // When both clientNumber and accountNumber are String
-                                                                  // Static analyse will not help.
-                                                                  // Only good tests can discover it.
-            logger.warn("Client number not equal");
-        }
 
         var clientEntity = clientRepository.save(
                 new ClientEntity(

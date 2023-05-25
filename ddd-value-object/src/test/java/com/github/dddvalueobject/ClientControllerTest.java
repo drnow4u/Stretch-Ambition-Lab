@@ -48,6 +48,25 @@ class ClientControllerTest {
     }
 
     @Test
+    void shouldEquals() {
+        var accountNumber = new AccountNumber("546lvop236");
+
+        // @formatter:off
+        assertFalse(accountNumber.equals(new ClientNumber("0987654321"))); // Code will compile
+                                                                           // Static code analyse will discover
+                                                                           // @formatter:on
+
+        // @formatter:off
+//        assertFalse(is(new ClientNumber("0987654321")).eq(accountNumber));// Will not compile
+                                                                           // Such comparison is usually hard to find bug in application
+                                                                           // Static source code analyse can help.
+                                                                           // When both clientNumber and accountNumber are String
+                                                                           // Static analyse will not help.
+                                                                           // Only good tests can discover it.
+                                                                           // @formatter:on
+    }
+
+    @Test
     void shouldCollectionContains() {
         var accountNumbers = List.of(
                 new AccountNumber("54f0hpo5n9"),
@@ -56,11 +75,12 @@ class ClientControllerTest {
                 new AccountNumber("54sq3811sk"),
                 new AccountNumber("546lvop236")
         );
-
+        // @formatter:off
         assertFalse(accountNumbers.contains(new ClientNumber("0987654321"))); // Code will compile
                                                                               // Static code analyse will discover
+                                                                              // @formatter:on
 
-        //assertFalse(is(new ClientNumber("0987654321")).in(accountNumbers));   // Will not compile
+//        assertFalse(is(new ClientNumber("0987654321")).in(accountNumbers));   // Will not compile
     }
 
 }
